@@ -8,7 +8,7 @@ export default function App() {
   // console.log(useDeviceOrientation());
   return (
     <View style={styles.container}>
-      <Text>Hello Komlo</Text>
+      <Text>Hello Kollo</Text>
       <StatusBar style="auto" />
     </View>
   );
