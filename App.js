@@ -9,8 +9,8 @@ export default function App() {
   // console.log(useDimensions());
   // console.log(useDeviceOrientation());
   return (
-    // <WelcomeScreen/>
-    <ViewImageScreen/>
+    <WelcomeScreen/>
+    // <ViewImageScreen/>
   );
 }
 
