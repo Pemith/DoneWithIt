@@ -7,14 +7,15 @@ import ViewImageScreen from './app/Screens/ViewImageScreen';
 import AppButton from './app/components/AppButton';
 import Card from './app/components/Card';
 import ListingDetailsScreen from './app/Screens/ListingDetailsScreen';
+import MessageScreen from './app/Screens/MessageScreen';
 
 export default function App() {
 
   return (
     // <WelcomeScreen/>
-    <ViewImageScreen/>
+    // <ViewImageScreen/>
     // <ListingDetailsScreen/>
-    
+    <MessageScreen/>
   );
 }
 
