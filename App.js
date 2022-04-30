@@ -6,15 +6,15 @@ import {
   useDeviceOrientation,
 } from "@react-native-community/hooks";
 
-import AppButton from "./app/components/AppButton";
+import Button from "./app/components/Button";
 import AccountScreen from "./app/Screens/AccountScreen";
-import AppTextInput from "./app/components/AppTextInput";
-import AppPicker from "./app/components/AppPicker";
+import AppTextInput from "./app/components/TextInput";
+import Picker from "./app/components/Picker";
 import Card from "./app/components/Card";
 import Icon from "./app/components/Icon";
 import ListingDetailsScreen from "./app/Screens/ListingDetailsScreen";
 import ListingScreen from "./app/Screens/ListingScreen";
-import ListItem from "./app/components/ListItem";
+import ListItem from "./app/components/lists/ListItem";
 import LoginScreen from "./app/Screens/LoginScreen";
 import MessageScreen from "./app/Screens/MessageScreen";
 import Screen from "./app/components/Screen";
@@ -25,11 +25,11 @@ import ListingEditScreen from "./app/Screens/ListingEditScreen";
 export default function App() {
   return (
     // <WelcomeScreen/>
-    // <ViewImageScreen/>
+    // <ViewImageScreen />
     // <ListingDetailsScreen/>
     // <MessageScreen/>
     // <AccountScreen/>
-    // <ListingScreen/>
+    // <ListingScreen />
     // <Screen>
     //   {/* <AppTextInput placeholder="Username" icon="email"/> */}
     //   <AppPicker
@@ -42,7 +42,9 @@ export default function App() {
     //   <AppTextInput icon='email' placeholder="email"/>
     // </Screen>
 
-    // <LoginScreen/>
-    <ListingEditScreen />
+    <LoginScreen />
+    // <AccountScreen />
+    // <ListingEditScreen />
+    // <MessageScreen />
   );
 }
