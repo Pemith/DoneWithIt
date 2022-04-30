@@ -42,9 +42,9 @@ export default function App() {
     //   <AppTextInput icon='email' placeholder="email"/>
     // </Screen>
 
-    <LoginScreen />
+    // <LoginScreen />
     // <AccountScreen />
-    // <ListingEditScreen />
+    <ListingEditScreen />
     // <MessageScreen />
   );
 }
