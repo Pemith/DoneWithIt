@@ -1,18 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image } from "react-native";
 import {
   useDimensions,
   useDeviceOrientation,
 } from "@react-native-community/hooks";
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
 
-import Button from "./app/components/Button";
 import AccountScreen from "./app/Screens/AccountScreen";
 import AppTextInput from "./app/components/TextInput";
+import Button from "./app/components/Button";
 import Picker from "./app/components/Picker";
 import Card from "./app/components/Card";
 import Icon from "./app/components/Icon";
+import ImageInput from "./app/components/ImageInput";
 import ListingDetailsScreen from "./app/Screens/ListingDetailsScreen";
+import ListingEditScreen from "./app/Screens/ListingEditScreen";
 import ListingScreen from "./app/Screens/ListingScreen";
 import ListItem from "./app/components/lists/ListItem";
 import LoginScreen from "./app/Screens/LoginScreen";
@@ -20,13 +24,15 @@ import MessageScreen from "./app/Screens/MessageScreen";
 import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/Screens/ViewImageScreen";
 import WelcomeScreen from "./app/Screens/WelcomeScreen";
-import ListingEditScreen from "./app/Screens/ListingEditScreen";
+import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
+  const [imageUris, setImageUris] = useState([]);
+
   return (
-    // <WelcomeScreen/>
+    // <WelcomeScreen />
     // <ViewImageScreen />
-    // <ListingDetailsScreen/>
+    // <ListingDetailsScreen />
     // <MessageScreen/>
     // <AccountScreen/>
     // <ListingScreen />
@@ -46,5 +52,12 @@ export default function App() {
     // <AccountScreen />
     <ListingEditScreen />
     // <MessageScreen />
+    // <Screen>
+    //   <ImageInputList
+    //     imageUris={imageUris}
+    //     onAddImage={handleAddleAdd}
+    //     onRemoveImage={handleRemove}
+    //   />
+    // </Screen>
   );
 }
