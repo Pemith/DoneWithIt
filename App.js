@@ -29,18 +29,10 @@ import ImageInputList from "./app/components/ImageInputList";
 export default function App() {
   const [imageUris, setImageUris] = useState([]);
 
-  const hadnleAdd = (uri) => {
-    setImageUris([...imageUris, uri]);
-  };
-
-  const handleRemove = (uri) => {
-    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
-  };
-
   return (
-    // <WelcomeScreen/>
+    // <WelcomeScreen />
     // <ViewImageScreen />
-    // <ListingDetailsScreen/>
+    // <ListingDetailsScreen />
     // <MessageScreen/>
     // <AccountScreen/>
     // <ListingScreen />
@@ -58,14 +50,14 @@ export default function App() {
 
     // <LoginScreen />
     // <AccountScreen />
-    // <ListingEditScreen />
+    <ListingEditScreen />
     // <MessageScreen />
-    <Screen>
-      <ImageInputList
-        imageUris={imageUris}
-        onAddImage={hadnleAdd}
-        onRemoveImage={handleRemove}
-      />
-    </Screen>
+    // <Screen>
+    //   <ImageInputList
+    //     imageUris={imageUris}
+    //     onAddImage={handleAddleAdd}
+    //     onRemoveImage={handleRemove}
+    //   />
+    // </Screen>
   );
 }
