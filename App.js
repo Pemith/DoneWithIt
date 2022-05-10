@@ -24,29 +24,19 @@ import MessageScreen from "./app/Screens/MessageScreen";
 import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/Screens/ViewImageScreen";
 import WelcomeScreen from "./app/Screens/WelcomeScreen";
+import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
-  const [imageUri, setImageUri] = useState();
+  const [imageUris, setImageUris] = useState([]);
 
-  const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraPermissionsAsync();
-    if (!granted) {
-      alert("You need to enable permissions to access");
-    }
+  const hadnleAdd = (uri) => {
+    setImageUris([...imageUris, uri]);
   };
-  useEffect(() => {
-    requestPermission();
-  }, []);
-  const selectImage = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync();
-      if (!result.cancelled) {
-        setImageUri(result.uri);
-      }
-    } catch (error) {
-      console.log("Error Reading an Image", error);
-    }
+
+  const handleRemove = (uri) => {
+    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
   };
+
   return (
     // <WelcomeScreen/>
     // <ViewImageScreen />
@@ -71,9 +61,11 @@ export default function App() {
     // <ListingEditScreen />
     // <MessageScreen />
     <Screen>
-      <Button title={"Select Image"} onPress={selectImage} />
-      {/* <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} /> */}
-      <ImageInput imageUri={imageUri} />
+      <ImageInputList
+        imageUris={imageUris}
+        onAddImage={hadnleAdd}
+        onRemoveImage={handleRemove}
+      />
     </Screen>
   );
 }
