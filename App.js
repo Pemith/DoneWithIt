@@ -7,6 +7,11 @@ import {
 } from "@react-native-community/hooks";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 
 import AccountScreen from "./app/Screens/AccountScreen";
 import AppTextInput from "./app/components/TextInput";
@@ -27,7 +32,77 @@ import WelcomeScreen from "./app/Screens/WelcomeScreen";
 import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
-  const [imageUris, setImageUris] = useState([]);
+  const Link = () => {
+    const navigation = useNavigation();
+
+    return (
+      <Button
+        title="Click"
+        onPress={() => navigation.navigate("TweetDetails")}
+      />
+    );
+  };
+
+  const Tweets = ({ navigation }) => (
+    <Screen>
+      <Text>Tweets</Text>
+      <Button
+        title="View Tweet"
+        onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
+      />
+      {/* <Button
+        title="View Tweet"
+        onPress={() => navigation.navigate("Account")}
+      /> */}
+      {/* <Link /> */}
+    </Screen>
+  );
+
+  const TweetDetails = ({ route }) => (
+    <Screen>
+      <Text>Tweet Details {route.params.id}</Text>
+    </Screen>
+  );
+
+  const Stack = createStackNavigator();
+  // const Stack = createNativeStackNavigator();
+  const StackNavigator = () => (
+    <Stack.Navigator>
+      <Stack.Screen name="Tweets" component={Tweets} />
+      <Stack.Screen
+        name="TweetDetails"
+        component={TweetDetails}
+        options={({ route }) => ({ title: route.params.id })}
+      />
+    </Stack.Navigator>
+  );
+  const Account = () => (
+    <Screen>
+      <Text>Account</Text>
+    </Screen>
+  );
+  const Tab = createBottomTabNavigator();
+  const TabNavigator = () => (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveBackgroundColor: "tomato",
+        tabBarActiveTintColor: "white",
+        tabBarInactiveBackgroundColor: "#eee",
+        tabBarInactiveTintColor: "black",
+      }}
+    >
+      <Tab.Screen
+        name="Feed"
+        component={Tweets}
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <MaterialCommunityIcons name="home" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen name="Account" component={Account} />
+    </Tab.Navigator>
+  );
 
   return (
     // <WelcomeScreen />
@@ -50,7 +125,7 @@ export default function App() {
 
     // <LoginScreen />
     // <AccountScreen />
-    <ListingEditScreen />
+    // <ListingEditScreen />
     // <MessageScreen />
     // <Screen>
     //   <ImageInputList
@@ -59,5 +134,8 @@ export default function App() {
     //     onRemoveImage={handleRemove}
     //   />
     // </Screen>
+    <NavigationContainer>
+      <TabNavigator />
+    </NavigationContainer>
   );
 }
