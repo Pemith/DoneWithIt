@@ -30,6 +30,10 @@ import Screen from "./app/components/Screen";
 import ViewImageScreen from "./app/Screens/ViewImageScreen";
 import WelcomeScreen from "./app/Screens/WelcomeScreen";
 import ImageInputList from "./app/components/ImageInputList";
+import RegisterScreen from "./app/Screens/RegisterScreen";
+import AuthNavigator from "./app/Navigation/AuthNavigator";
+import NavigationTheme from "./app/Navigation/NavigationTheme";
+import AppNavigator from "./app/Navigation/AppNavigator";
 
 export default function App() {
   const Link = () => {
@@ -134,8 +138,10 @@ export default function App() {
     //     onRemoveImage={handleRemove}
     //   />
     // </Screen>
-    <NavigationContainer>
-      <TabNavigator />
+    <NavigationContainer theme={NavigationTheme}>
+      {/* <AuthNavigator /> */}
+      <AppNavigator />
     </NavigationContainer>
+    // <RegisterScreen />
   );
 }
