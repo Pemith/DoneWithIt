@@ -6,6 +6,7 @@ import Screen from "../components/Screen";
 import colors from "../config/colors";
 import Icon from "../components/Icon";
 import ListItemSeperator from "../components/lists/ListItemSeperator";
+import routes from "../Navigation/routes";
 
 const menuItems = [
   {
