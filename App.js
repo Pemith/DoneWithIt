@@ -37,11 +37,13 @@ import AppNavigator from "./app/Navigation/AppNavigator";
 import OfflineNotice from "./app/components/OfflineNotice";
 
 export default function App() {
+  const [user, setUser] = useState();
   return (
     <>
       <OfflineNotice />
       <NavigationContainer theme={NavigationTheme}>
-        <AppNavigator />
+        {/* <AppNavigator /> */}
+        <AuthNavigator />
       </NavigationContainer>
     </>
   );
