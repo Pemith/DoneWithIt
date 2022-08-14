@@ -35,16 +35,16 @@ import AuthNavigator from "./app/Navigation/AuthNavigator";
 import NavigationTheme from "./app/Navigation/NavigationTheme";
 import AppNavigator from "./app/Navigation/AppNavigator";
 import OfflineNotice from "./app/components/OfflineNotice";
+import AuthContext from "./app/auth/context";
 
 export default function App() {
   const [user, setUser] = useState();
   return (
-    <>
+    <AuthContext.Provider value={{ user, setUser }}>
       <OfflineNotice />
       <NavigationContainer theme={NavigationTheme}>
-        {/* <AppNavigator /> */}
-        <AuthNavigator />
+        {user ? <AppNavigator /> : <AuthNavigator />}
       </NavigationContainer>
-    </>
+    </AuthContext.Provider>
   );
 }
